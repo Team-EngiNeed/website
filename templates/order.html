@@ -1,0 +1,79 @@
+{% extends 'layout.html' %}
+{% load static %} 
+
+{% block title %} Order Details {% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/order.css' %}" />
+{% endblock %}
+
+{% block main %}
+<div class="order-detail">
+  <h1>Order Details</h1>
+  
+  {% if can_edit %}
+    <!-- Form for editing if user is either an engineer or president -->
+    <form method="post">
+      {% csrf_token %}
+      
+      <label><strong>Name:</strong>
+        <input type="text" name="fullName" value="{{ submission.fullName }}">
+      </label><br>
+
+      <label><strong>Grade & Section:</strong>
+        <input type="text" name="gradeSection" value="{{ submission.gradeSection }}">
+      </label><br>
+
+      <label><strong>Damaged Property:</strong>
+        <input type="text" name="damagedProperty" value="{{ submission.damagedProperty }}">
+      </label><br>
+
+      <label><strong>Comment:</strong>
+        <textarea name="comment">{{ submission.comment }}</textarea>
+      </label><br>
+
+      {% if submission.damagedImage %}
+        <img src="{{ submission.damagedImage.url }}" alt="Damaged Property Image">
+      {% endif %}<br>
+
+      <!-- Conditionally show checkbox only for VCSMS-Engineer -->
+      {% if username == "VCSMS-Engineer" %}
+        <label>
+          <input type="checkbox" name="completed" {% if submission.completed %}checked{% endif %}>
+          Completed
+        </label><br>
+      {% else %}
+        <!-- Display as label if not engineer -->
+        <label><strong>Status:</strong> {% if submission.completed %}Completed{% else %}Not yet completed{% endif %}</label><br>
+      {% endif %}
+
+      <!-- Conditional button functionality -->
+      <button type="submit">
+        {% if username == "VCSMS-Engineer" %}
+          Save Changes
+        {% else %}
+          Save
+        {% endif %}
+      </button>
+    </form>
+  
+  {% else %}
+    <!-- Display details if the user cannot edit -->
+    <p><strong>Name:</strong> {{ submission.fullName }}</p>
+    <p><strong>Grade & Section:</strong> {{ submission.gradeSection }}</p>
+    <p><strong>Submitted on:</strong> {{ submission.dateSubmitted|date:"F j, Y, g:i a" }}</p>
+    <p><strong>Damaged Property:</strong> {{ submission.damagedProperty }}</p>
+    <p><strong>Comment:</strong> {{ submission.comment }}</p>
+
+    {% if submission.damagedImage %}
+      <img src="{{ submission.damagedImage.url }}" alt="Damaged Property Image">
+    {% endif %}
+
+    {% if submission.completed %}
+      <p class="status-completed">Completed</p>
+    {% else %}
+      <p class="status-not-completed">Not yet completed</p>
+    {% endif %}
+  {% endif %}
+</div>
+{% endblock %}

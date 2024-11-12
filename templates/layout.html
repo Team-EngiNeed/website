@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title%} EngiNeed {% endblock %}</title>
+    <link rel="stylesheet" href="{%static 'css/styles.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    {% block extra_css %} {% endblock %}
+  </head>
+
+  <body>
+    <!--NAVBAR-->
+    <nav class="navbar">
+      <div class="navbar__container">
+        <div class="navbar__logo">
+          <img
+            src="{% static 'images/ENGINEED LOGO.png' %}"
+            alt="pic"
+            id="navbar__logo"
+          />
+        </div>
+        <div class="navbar__toggle" id="mobile-menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+        <ul class="navbar__menu">
+          <li class="navbar__item">
+            {% if user.is_authenticated %}
+    {% if 'PRESIDENT' in user.username.upper %}
+        <a href="{% url 'engineed:index_new' %}" class="navbar__links">Home</a>
+    {% elif 'ADVISER' in user.username.upper %}
+        <a href="{% url 'engineed:adviser' %}" class="navbar__links">Orders</a>
+    {% elif 'ENGINEER' in user.username.upper %}
+        <a href="{% url 'engineed:engineer' %}" class="navbar__links">Orders</a>
+    {% else %}
+        <a href="{% url 'engineed:index' %}" class="navbar__links">Home</a>
+    {% endif %}
+{% else %}
+    <a href="{% url 'engineed:index' %}" class="navbar__links">Home</a>
+{% endif %}
+
+          </li>
+
+          <li class="navbar__item">
+            <!-- prettier-ignore -->
+            {% if user.is_authenticated %}
+    {% if 'PRESIDENT' in user.username.upper %}
+        <a href="{% url 'engineed:page' %}" class="navbar__links">Orders</a>
+    {% elif 'ADVISER' in user.username.upper %}
+        <a href="{% url 'engineed:about' %}" class="navbar__links">About</a>
+    {% elif 'ENGINEER' in user.username.upper %}
+        <a href="{% url 'engineed:about' %}" class="navbar__links">About</a>
+    {% else %}
+        <a href="{% url 'engineed:about' %}" class="navbar__links">About</a>
+    {% endif %}
+{% else %}
+    <a href="{% url 'engineed:about' %}" class="navbar__links">About</a>
+{% endif %}
+          </li>
+
+          <li class="navbar__item">
+            {% if user.is_authenticated %}
+    {% if 'PRESIDENT' in user.username.upper %}
+        <a href="{% url 'engineed:about' %}" class="navbar__links">About</a>
+    {% elif 'ADVISER' in user.username.upper %}
+        <a href="{% url 'engineed:researchers' %}" class="navbar__links">The Researchers</a>
+    {% elif 'ENGINEER' in user.username.upper %}
+        <a href="{% url 'engineed:researchers' %}" class="navbar__links">The Researchers</a>
+    {% else %}
+        <a href="{% url 'engineed:researchers' %}" class="navbar__links">The Researchers</a>
+    {% endif %}
+{% else %}
+    <a href="{% url 'engineed:researchers' %}" class="navbar__links">The Researchers</a>
+{% endif %}
+
+          </li>
+
+          <li class="navbar__btn">
+            {% if user.is_authenticated %}
+            <form action="{% url 'users:logout' %}" method="post">
+              {% csrf_token %}
+              <button type="submit" class="button">Log Out</button>
+            </form>
+            {% else %}
+            <a href="{% url 'users:login' %}" class="button">Log In</a>
+            {% endif %}
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <script src="{% static 'js/app.js' %}"></script>
+
+    <!--MAIN-->
+    <div class="main">{% block main%} {% endblock %}</div>
+    <div class="extended_content">
+      {% block extended_content %} {% endblock %}
+    </div>
+  </body>
+</html>

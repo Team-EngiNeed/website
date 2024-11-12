@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+{% load static %} 
+
+{% block title %} Job-Orders {% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/page.css' %}" />
+{% endblock %}
+
+{% block main %}
+<div class="main__container">
+  <div class="main__content">
+    {% for submission in submissions %}
+    <h1>President</h1>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="content">
+  <div class="content-inner">
+    <h1>Your Submissions</h1>
+    <ul>
+      {% for submission in submissions %}
+        <li>
+          <a href="{% url 'engineed:order_detail' submission.pk %}">
+            {{ submission.fullName }} - {{ submission.gradeSection }} - {{ submission.dateSubmitted }} {% if submission.completed %}
+              Complete!
+            {% else %}
+              Not Complete
+            {% endif %}
+          </a> 
+        </li>
+      {% empty %}
+        <p>No submissions yet.</p> <br>
+        <p>Go to Home page to submit a ticket.</p>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endblock %}

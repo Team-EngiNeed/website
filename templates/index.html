@@ -1,0 +1,42 @@
+{%extends 'layout.html' %} {% load static %} 
+{% block title %} Home {% endblock%} 
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}" />
+{% endblock %}
+
+ {% block main%}
+<div class="main__container">
+  <div class="main__content">
+    <h1>EngiNeed</h1>
+    <p>Better and Safer Learning Space</p>
+    <button class="main__btn">
+      <a href="#services">Get Started</a>
+    </button>
+  </div>
+</div>
+{% endblock %}
+
+<!--SERVICES-->
+{% block extended_content %}
+<div class="services" id="services">
+  <h1>See What We Offer</h1>
+  <div class="services__container">
+    <div class="services__card">
+      <h2>Service</h2>
+      <p>Send a Ticket</p>
+      <button>
+        <a href="{% url 'users:login' %}">Get Started</a>
+      </button>
+    </div>
+    <div class="services__card">
+      <h2>About</h2>
+      <p>The Research Team</p>
+      <button>
+        <a href="{% url 'engineed:about' %}">Get Started</a>
+      </button>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,89 @@
+{% extends 'layout.html' %} {% load static %} {% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/index_new.css' %}" />
+{% endblock %} {% block title %} Home Page {% endblock %} {% block main%}
+<div class="main__container">
+  <div class="main__content">
+    <h1>EngiNeed</h1>
+    <p>Better and Safer Learning Space</p>
+    <button class="main__btn">
+      <a href="#content-inner">Submit a Ticket</a>
+    </button>
+  </div>
+</div>
+{% endblock %} 
+{% block extended_content %}
+
+<div class="content">
+  <div class="content-inner" id="content-inner">
+    <form
+      action="{% url 'engineed:index_new' %}"
+      method="POST"
+      enctype="multipart/form-data"
+    >
+      {% csrf_token %}
+
+      <label for="fullName">Full Name</label>
+      <input
+        type="text"
+        name="fullName"
+        id="fullName"
+        required
+        placeholder="Example Juan Dela Cruz"
+      />
+
+      <label for="gradeSection">Grade & Section</label>
+      <input
+        type="text"
+        name="gradeSection"
+        id="gradeSection"
+        required
+        placeholder="12-More"
+      />
+
+      <label for="dateSubmitted">Date of Submission</label>
+      <input
+        type="datetime-local"
+        name="dateSubmitted"
+        id="dateSubmitted"
+        required
+      />
+
+      <label for="damagedProperty">Damaged Property</label>
+      <select name="damagedProperty" id="damagedProperty" required>
+        <option value="" disabled selected>Select an item</option>
+        <option value="chair">Chair</option>
+        <option value="table">Table</option>
+        <option value="electricfan">Electric Fan</option>
+        <option value="outlet">Outlet</option>
+        <option value="television">Television</option>
+        <option value="whiteboard">Whiteboard</option>
+        <option value="tiles">Tiles</option>
+        <option value="window">Window</option>
+      </select>
+
+      <label for="damagedImage">File:</label>
+      <input
+        type="file"
+        name="damagedImage"
+        id="damagedImage"
+        accept="image/png, image/jpg, image/jpeg"
+      />
+
+      <label for="comment">Comment</label>
+      <textarea
+        name="comment"
+        rows="3"
+        id="comment"
+        cols="25"
+        placeholder="Please input here the [other] if applicable"
+      ></textarea>
+
+      <div class="form-buttons">
+        <input type="reset" value="Clear" class="form-buttons-reset" />
+        <input type="submit" value="Submit" class="form-buttons-submit" />
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

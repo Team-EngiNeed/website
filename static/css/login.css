@@ -1,0 +1,136 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
+}
+
+
+.login
+{
+  transform: translateY(-100px);
+}
+
+.close-btn {
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: black; /* or any color you prefer */
+  cursor: pointer;
+  /* Add any additional styling you need */
+  position:absolute;
+  right: 50px;
+}
+
+
+
+.login-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 750px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  animation: popupFadeIn 0.5s ease-in-out; /* Add fade-in animation */
+  height: 400px;
+}
+
+.form_email
+{
+  position: absolute;
+  transform:translateY(75px);
+}
+
+.form_password
+{
+  position: absolute;
+  transform:translateY(150px);
+}
+
+/* Form Label */
+.form label {
+  font-weight: bold;
+  color: #000;
+  display: block;
+  margin: 10px 0 5px;
+}
+
+/* Headings */
+.login-content h2 {
+  font-size: 36px;
+  margin-bottom: 30px;
+  color: #333; /* Slightly darker than black */
+  position: absolute;
+  transform:translateY(-10px);
+}
+
+.login-btn
+{
+  position: absolute;
+  transform: translateY(230px);
+}
+
+
+
+/* Label for the Remember me checkbox */
+form label {
+  font-size: 20px;
+  margin-left: 5px;
+  color: #333; /* Darker for better readability */
+}
+
+/* Login Button */
+button[type="submit"] {
+  width: 650px;
+  background-color: #5a0b12; /* Maroon color */
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #7a0e18; /* Darker maroon on hover */
+}
+
+/* Adjustments for the form fields */
+
+
+
+.form_email input {
+  width: 500px;         /* Set width to 500px */
+  padding: 10px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  box-sizing: border-box; /* Ensures padding and border are included in the width */
+  margin-left: 5px;     /* Moves the input 50px to the right */
+}
+
+
+.form_password input {
+  width: 500px;  /* Set width to 500px */
+  padding: 10px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  box-sizing: border-box; /* Ensures padding and border are included in the width */
+  margin-left: 12px;     /* Moves the input 50px to the right */
+}
+
+
+.error-message {
+  color: #ff0000; /* Red color for error text */
+  background-color: #ffe6e6; /* Light red background */
+  padding: 10px;
+  border: 1px solid #ff0000;
+  border-radius: 5px;
+  font-size: 14px;
+  position: absolute;
+  transform: translateY(285px);
+  width: 650px;
+}

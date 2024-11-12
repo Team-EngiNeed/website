@@ -1,0 +1,53 @@
+{% extends 'layout.html' %}
+{% load static %} 
+
+{% block title %}
+The Researchers
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/researchers.css' %}" />
+{% endblock %}
+
+{% block main%}
+
+<div class="main__container">
+  <div class="main__content">
+      <h1>The Researchers</h1>
+  </div>
+</div>
+
+<div class="services" id="services"> 
+  <div class="services__container">
+      <div class="services__card">
+          <img class="jovel" src="{% static 'images/JOVEL.png' %}">
+          <h2>Jovel Mae C. Escaño</h2>
+          <h3>Team Leader</h3>
+          <br>
+          <p>"Kung kaya ng iba ipagawa mo na"</p>
+      </div>
+      <div class="services__card">
+          <img class="nico" src="{% static 'images/NICO.png' %}">
+          <h2>Nico Angelo I. Bugna</h2>
+          <h3>Head of Coding</h3>
+          <br>
+          <p>"Just don't do it"</p>
+      </div>
+      <div class="services__card">
+          <img class="celine" src="{% static 'images/CELINE.png' %}">
+          <h2>Celine B. Bragado</h2>
+          <h3>Web Designer</h3>
+          <br>
+          <p>"Wala akong second name"</p>
+      </div>
+      <div class="services__card">
+          <img class="jaira" src="{% static 'images/JAIRA.png' %}">
+          <h2>Jaira Moira L. Del Mundo</h2>
+          <h3>Web Designer</h3>
+          <br>
+          <p>"M in More is Moira"</p>
+      </div>
+  </div>
+</div>
+
+{% endblock %}

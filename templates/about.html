@@ -1,0 +1,65 @@
+{%extends 'layout.html' %} {% load static %} {% block title %} About {% endblock%} 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}" />
+{% endblock %} {% block main%}
+<div class="about__container">
+  <div class="about__content">
+    <h1>EngiNeed</h1>
+    <p>Better and Safer Learning Space</p>
+    <p>
+      This website was developed by a dedicated research team under the guidance
+      of our research <br />
+      adviser, Ma’am Aireen Catuiza. The project is led by Jovel Mae C. Escaño,
+      with key contributions <br />
+      from team members Nico Angelo I. Bugna, Celine B. Bragado, and Jaira Moira
+      L. Del Mundo. <br /><br />
+      Engineed is designed to serve as a communication bridge between students
+      and <br />
+      engineers, ensuring that essential school facilities like electric fans
+      and other equipment are promptly <br />
+      repaired. Our mission is to streamline the process, making it easier for
+      everyone to contribute to <br />
+      a better learning environment.
+    </p>
+  </div>
+</div>
+{% endblock %} 
+
+
+{% block extended_content %}
+<div class="contact">
+  <h1>Contact Us</h1>
+  <div class="contact__container">
+    <div class="contact__content__1">
+      <h2>Send us an Email</h2>
+      <ul>
+        <li>teamengineed@gmail.com</li>
+        <li>nicoangeloilustre@gmail.com</li>
+        <li>jaira.delmundo.320401@gmail.com</li>
+        <li>celine.bragado.320401@gmail.com</li>
+        <li>escanojovelmae@gmail.com</li>
+      </ul>
+    </div>
+
+    <div class="contact__content__2">
+      <h2>Send us a message</h2>
+      <form action="{% url 'engineed:about' %}" method="POST">
+        {% csrf_token %}
+        
+        <label for="name" placeholder="Dela Cruz, Juan Alonso">Full Name *</label>
+        <input type="text" id="name" name="full_name" required />
+        
+        <label for="email" placeholder="teamengineed@gmail.com">Email Address *</label>
+        <input type="email" id="email" name="email" required />
+        
+        <label for="message">Message *</label>
+        <textarea id="message" name="message" required></textarea>
+        
+        <button type="submit">SEND MESSAGE</button>
+      </form>
+    </div>
+    
+  
+{% endblock %}
+
+ 
