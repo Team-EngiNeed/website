@@ -13,13 +13,13 @@ def login_view(request):
             UserModel = get_user_model()
             
             try:
-                # Try to get the user based on the email
-                user = UserModel.objects.get(username=username)
+                # Case-insensitive lookup for email
+                user = UserModel.objects.get(username__iexact=username)  # Email should be unique
                 if user.check_password(password):  # Check if the password is correct
                     login(request, user)  # Log the user in
 
                     # Redirect based on username content
-                    username = user.username.upper()  # Make it case-insensitive
+                    username = user.username.upper()  # Optional: Make it case-insensitive for role check
                     if 'ENGINEED-ADMIN' in username:
                         return redirect('engineed:index_new')
                     elif 'PRESIDENT' in username:
