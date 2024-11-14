@@ -3,44 +3,71 @@ from django.contrib.auth import login, logout
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import get_user_model
+from django.contrib.auth import authenticate, login
+from django.shortcuts import render, redirect
+from django.contrib.auth.forms import AuthenticationForm
+from .forms import CustomUserCreationForm
+
+
+from django.contrib.auth import authenticate, login
+from .forms import CustomUserCreationForm
+
+def register_view(request):
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()  # Save user with hashed password
+            
+            # Automatically log in the user
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                # Redirect based on their role or to a home page
+                return redirect('engineed:index_new')  # Adjust to the desired page after login
+    else:
+        form = CustomUserCreationForm()
+    
+    return render(request, 'users/register.html', {'form': form})
+
 
 def login_view(request):
     if request.method == 'POST':
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
-            username = form.cleaned_data['username']  # 'username' here represents the email
+            username = form.cleaned_data['username']
             password = form.cleaned_data['password']
-            UserModel = get_user_model()
             
-            try:
-                # Case-insensitive lookup for email
-                user = UserModel.objects.get(username__iexact=username)  # Email should be unique
-                if user.check_password(password):  # Check if the password is correct
-                    login(request, user)  # Log the user in
-
-                    # Redirect based on username content
-                    username = user.username.upper()  # Optional: Make it case-insensitive for role check
-                    if 'ENGINEED-ADMIN' in username:
-                        return redirect('engineed:index_new')
-                    elif 'PRESIDENT' in username:
-                        return redirect('engineed:index_new')
-                    elif 'ENGINEER' in username:
-                        return redirect('engineed:engineer')
-                    elif 'ADVISER' in username:
-                        return redirect('engineed:adviser')
-                    else:
-                        # Default redirect if no keyword is found
-                        return redirect('engineed:index')
-
-            except UserModel.DoesNotExist:
-                form.add_error('username', 'User with this email does not exist.')
+            # Authenticate the user
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)  # Log the user in
+                
+                # Role-based redirection logic
+                user_role = user.username.upper()  # For case-insensitive matching
+                if 'ENGINEED-ADMIN' in user_role or 'PRESIDENT' in user_role:
+                    return redirect('engineed:index_new')
+                elif 'ENGINEER' in user_role:
+                    return redirect('engineed:engineer')
+                elif 'ADVISER' in user_role:
+                    return redirect('engineed:adviser')
+                else:
+                    return redirect('engineed:index')  # Default redirect
+            else:
+                # If user is None (authentication failed), return the form with the error message
+                return render(request, 'users/login.html', {'form': form, 'error': 'Incorrect username or password.'})
         else:
-            form.add_error(None, 'Incorrect email or password.')  # General error for other cases
+            # If the form is not valid, simply return the form with the errors
+            return render(request, 'users/login.html', {'form': form})
 
     else:
-        form = AuthenticationForm()  # Display an empty form if GET request
+        # Initialize a blank form for GET requests
+        form = AuthenticationForm()
 
+    # Render the form without errors
     return render(request, 'users/login.html', {'form': form})
+
 
 # Custom logout view (POST request to logout)
 from django.contrib.auth import logout

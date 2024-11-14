@@ -10,13 +10,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY")
+#SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = "hotdog"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
+#DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split()
+DEBUG = True
 
+#ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split()
+
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -74,9 +78,11 @@ DATABASES = {
     }
 }
 
+DATABASES["default"]=dj_database_url.parse("postgresql://engineed_05_user:AUNnJ6UAFdmd0AnjhUSXtQAmnuHihAyc@dpg-csr1til2ng1s73bshbng-a.oregon-postgres.render.com/engineed_05")
 
-database_url = os.environ.get("DATABASE_URL")
-DATABASES["default"] = dj_database_url.parse(database_url)
+
+#database_url = os.environ.get("DATABASE_URL")
+#DATABASES["default"] = dj_database_url.parse("postgresql://engineed_7vl7_user:8NDIORSTpIS9TgxPzs1CMzvIGxAZr3Mq@dpg-cspo2kbv2p9s738sp2ng-a.oregon-postgres.render.com/engineed_7vl7")
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -139,4 +145,4 @@ LOGIN_REDIRECT_URL = 'engineed/index_new'  # Redirect to this page after login
 LOGOUT_REDIRECT_URL = 'engineed/index'  # Redirect here after logout
 
 # settings.py
-AUTH_USER_MODEL = 'auth.User'
+AUTH_USER_MODEL = 'users.CustomUser'

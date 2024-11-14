@@ -84,15 +84,16 @@
           </li>
 
           <li class="navbar__btn">
-            {% if user.is_authenticated %}
-            <form action="{% url 'users:logout' %}" method="post">
-              {% csrf_token %}
-              <button type="submit" class="button">Log Out</button>
-            </form>
-            {% else %}
-            <a href="{% url 'users:login' %}" class="button">Log In</a>
-            {% endif %}
-          </li>
+  {% if user.is_authenticated %}
+    <form action="{% url 'users:logout' %}" method="post">
+      {% csrf_token %}
+      <button type="submit" class="button">Log Out</button>
+    </form>
+  {% else %}
+    <a href="{% url 'users:register' %}" class="button">Register/Log In</a>
+  {% endif %}
+</li>
+
         </ul>
       </div>
     </nav>
