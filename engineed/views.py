@@ -32,10 +32,6 @@ def researchers(request):
   return render(request, 'researchers.html')
 
 
-from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required
-from django.utils import timezone
-from . import forms
 
 @login_required(login_url="/users/login/")
 def index_new(request):
@@ -58,10 +54,19 @@ def index_new(request):
             # Save the new ticket to the database
             new_ticket.save()
 
-            # Redirect to the same page after saving the form
-            return redirect('engineed:index_new')
+            # Redirect based on user role
+            user_role = request.user.groups.values_list('name', flat=True)  # Assuming roles are assigned via groups
+            if 'ENGINEED-ADMIN' in user_role or 'PRESIDENT' in user_role:
+                return redirect('engineed:index_new')  # Redirect to engieed_index_new
+            elif 'ENGINEER' in user_role:
+                return redirect('engineed:engineer')  # Redirect to engineed:engineer
+            elif 'ADVISER' in user_role:
+                return redirect('engineed:adviser')  # Redirect to engineed:adviser
+            else:
+                return redirect('engineed:index')  # Default redirect
 
     return render(request, 'index_new.html', {'form': form})
+
 
 
 @login_required(login_url="/users/login/")
@@ -84,13 +89,24 @@ def order_detail(request, pk):
         submission.comment = request.POST.get('comment', submission.comment)
         submission.completed = 'completed' in request.POST
         submission.save()
-        return redirect('engineed:engineer')  # Redirect after saving
+
+        # Redirect based on user role
+        user_role = request.user.groups.values_list('name', flat=True)  # Get user roles (assuming groups)
+        if 'ENGINEED-ADMIN' in user_role or 'PRESIDENT' in user_role:
+            return redirect('engineed:index_new')  # Redirect to engieed_index_new
+        elif 'ENGINEER' in user_role:
+            return redirect('engineed:engineer')  # Redirect to engineed:engineer
+        elif 'ADVISER' in user_role:
+            return redirect('engineed:adviser')  # Redirect to engineed:adviser
+        else:
+            return redirect('engineed:index')  # Default redirect
 
     return render(request, 'order.html', {
         'submission': submission,
         'username': request.user.username,
         'can_edit': can_edit
     })
+
 
 @login_required
 def adviser(request):
