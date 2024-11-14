@@ -49,15 +49,6 @@ class Submission(models.Model):
         default='chair'  # You can set a default if needed
     )
 
-    # Image field with restrictions on accepted file types
-    damagedImage = models.ImageField(
-        upload_to='damaged_images/',  # Specify where to upload images
-        null=True, blank=True,  # Allow empty value
-        validators=[
-            # Optional: Limit accepted image formats
-            FileExtensionValidator(allowed_extensions=['jpg', 'png', 'jpeg'])
-        ]
-    )
 
     # Comment field
     comment = models.SlugField(null=True, blank=True)  # Optional comment field

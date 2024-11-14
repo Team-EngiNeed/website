@@ -126,7 +126,7 @@ input[type="checkbox"] {
 }
 
 /* Styling for the button */
-button[type="submit"] {
+.form-save button[type="submit"] {
   padding: 8px 16px;  /* Reduced padding */
   font-size: 14px;  /* Reduced font size */
   color: #fff;
@@ -137,7 +137,7 @@ button[type="submit"] {
   transition: background-color 0.3s ease;
 }
 
-button[type="submit"]:hover {
+.form-save button[type="submit"]:hover {
   background-color: #7a1f16; /* Darker shade on hover */
 }
 

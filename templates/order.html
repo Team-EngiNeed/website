@@ -32,10 +32,6 @@
         <textarea name="comment">{{ submission.comment }}</textarea>
       </label><br>
 
-      {% if submission.damagedImage %}
-        <img src="{{ submission.damagedImage.url }}" alt="Damaged Property Image">
-      {% endif %}<br>
-
       <!-- Conditionally show checkbox only for VCSMS-Engineer -->
       {% if username == "VCSMS-Engineer" %}
         <label>
@@ -48,7 +44,7 @@
       {% endif %}
 
       <!-- Conditional button functionality -->
-      <button type="submit">
+      <button type="submit" class = "form-save">
         {% if username == "VCSMS-Engineer" %}
           Save Changes
         {% else %}
