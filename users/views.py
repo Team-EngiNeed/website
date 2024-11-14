@@ -24,8 +24,19 @@ def register_view(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                # Redirect based on their role or to a home page
-                return redirect('engineed:index_new')  # Adjust to the desired page after login
+                
+                # Role-based redirection logic after successful login
+                user_role = user.username.upper()  # For case-insensitive matching
+                if 'ENGINEED-ADMIN' in user_role or 'PRESIDENT' in user_role:
+                    return redirect('engineed:index_new')
+                elif 'ENGINEER' in user_role:
+                    return redirect('engineed:engineer')
+                elif 'ADVISER' in user_role:
+                    return redirect('engineed:adviser')
+                else:
+                    return redirect('engineed:index')  # Default redirect
+            else:
+                return render(request, 'users/register.html', {'form': form, 'error': 'Authentication failed.'})
     else:
         form = CustomUserCreationForm()
     
