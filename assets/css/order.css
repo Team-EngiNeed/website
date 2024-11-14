@@ -1,0 +1,156 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.main__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  animation: transitionIn 0.75s;
+}
+
+.main__content h1 {
+  position: absolute;
+  font-size: 4rem;
+  top: 150px;
+  left: 100px;
+  background-image: linear-gradient(to right, #982b1c -50%, #dad4b5 50%,  #982b1c 100%);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+/* Page container styling */
+.content {
+  padding: 15px;  /* Reduced padding */
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 700px;  /* Reduced max-width */
+  margin: auto;
+}
+
+.content-inner h1 {
+  font-size: 24px;  /* Reduced font size */
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+/* Order detail container styling */
+.order-detail {
+  padding: 15px;  /* Reduced padding */
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 480px;  /* Reduced max-width */
+  margin: auto;
+
+}
+
+.order-detail h1 {
+  font-size: 22px;  /* Reduced font size */
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.order-detail p {
+  font-size: 14px;  /* Reduced font size */
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.order-detail img {
+  max-width: 60%;  /* Reduced image size */
+  height: auto;
+  margin-top: 12px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for the completed status */
+.status-completed {
+  font-size: 14px;  /* Reduced font size */
+  color: #2d6a4f; /* A darker green shade */
+  font-weight: 600;
+  background-color: #d8f3dc; /* Light green background */
+  padding: 8px 12px;  /* Reduced padding */
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-top: 12px;
+}
+
+/* Styling for the not completed status */
+.status-not-completed {
+  font-size: 14px;  /* Reduced font size */
+  color: #a61b1b; /* A darker red shade */
+  font-weight: 600;
+  background-color: #f8d7da; /* Light red background */
+  padding: 8px 12px;  /* Reduced padding */
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-top: 12px;
+}
+
+/* Styling for the input fields */
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 10px 12px;  /* Reduced padding */
+  font-size: 14px;  /* Reduced font size */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 12px;  /* Reduced margin-bottom */
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: #982b1c;
+  background-color: #fff;
+}
+
+/* Styling for the checkbox */
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+/* Styling for the button */
+.form-save button[type="submit"] {
+  padding: 8px 16px;  /* Reduced padding */
+  font-size: 14px;  /* Reduced font size */
+  color: #fff;
+  background-color: #982b1c; /* Red color */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-save button[type="submit"]:hover {
+  background-color: #7a1f16; /* Darker shade on hover */
+}
+
+/* Styling for labels */
+label {
+  font-size: 14px;  /* Reduced font size */
+  color: #333;
+  margin-bottom: 6px;  /* Reduced margin-bottom */
+  display: block;
+}
+
+/* Styling for textareas */
+textarea {
+  resize: vertical;
+  height: 80px;  /* Reduced height */
+}

@@ -82,8 +82,6 @@ database_url = os.environ.get("DATABASE_URL")
 DATABASES["default"]=dj_database_url.parse(database_url)
 
 
-#database_url = os.environ.get("DATABASE_URL")
-#DATABASES["default"] = dj_database_url.parse("postgresql://engineed_7vl7_user:8NDIORSTpIS9TgxPzs1CMzvIGxAZr3Mq@dpg-cspo2kbv2p9s738sp2ng-a.oregon-postgres.render.com/engineed_7vl7")
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -128,9 +126,6 @@ STATICFILES_DIRS =[
 STATIC_ROOT= os.path.join(BASE_DIR, 'assets')
 
 
-MEDIA_URL = '/media/'
-
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 
 # Default primary key field type

@@ -1,0 +1,140 @@
+.main__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: white; /* Adjust text color to stand out against the background */
+  transform: translateY(-100px); /* Moves the content upwards by 50px */
+  animation: transitionIn 0.75s;
+  margin-bottom: 100px; /* Adjust spacing as needed */
+}
+
+.main__content h1 {
+  font-size: 10rem;
+  margin-bottom: 10px;
+  background-image: linear-gradient(to right, #982b1c -50%, #dad4b5 50%,  #982b1c 100%);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+.main__content p {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.main__btn {
+  padding: 10px 20px;
+  background: linear-gradient(to bottom, #561c24, #883c3c); /* Gradient for the button */
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.main__btn a {
+  text-decoration: none;
+  color: white;
+}
+
+.main__btn:hover {
+  background: linear-gradient(to bottom, #883c3c, #561c24); /* Reversed gradient on hover */
+}
+
+
+
+.extended_content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("/static/images/BG.png") no-repeat center center fixed;
+  background-size: cover;
+  height: 110vh;
+}
+
+.services {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  animation: transitionIn 0.75s;
+}
+
+.services h1 {
+  background-image: linear-gradient(to right, #982b1c -50%, #dad4b5 50%, #982b1c 100%);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  margin-bottom: 5rem;
+  font-size: 5rem;
+  transform: translateY(110px);
+}
+
+.services__container {
+  display: flex;
+  justify-content: center; /* Center the cards horizontally */
+  gap: 30px; /* Optional: add space between the cards */
+  transform: translateY(100px);
+}
+
+
+
+.services__card {
+  margin: 1rem;
+  height: 525px;
+  width: 700px;
+  border-radius: 10px;
+  background-size: cover;
+  position: relative;
+  color: #fff;
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(17,17,17, 0.6) 100%), url('/static/images/mess bg.jpg');
+}
+
+.services__card:nth-child(2)
+{
+ background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(17,17,17, 0.6) 100%), url('/static/images/webdeveloper.jpg');
+}
+
+.services__card h2{
+  position: absolute;
+  top: 360px;
+  left: 25px;
+  font-size: 3rem;
+}
+
+.services__card p
+{
+  position: absolute;
+  top: 420px;
+  left: 25px;
+  cursor: pointer;
+}
+
+.services__card button
+{
+  padding: 10px 20px;
+  background: linear-gradient(to bottom, #561c24, #883c3c); /* Gradient for the button */
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  position: inherit;
+  top: 450px;
+  left: -240px;
+}
+
+.services__card a {
+  text-decoration: none;
+  color: white;
+}
+
+.services__card :hover
+{
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  transform: scale(1.075);
+}
