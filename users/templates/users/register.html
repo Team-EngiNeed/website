@@ -23,10 +23,6 @@
       {% endfor %}
     </div>
     {% endif %}
-    
-       <div class="login-link">
-      <p>Already have an account? <a href="{% url 'users:login' %}">Log In</a></p>
-      </div>
 
     <form method="post" action="{% url 'users:register' %}">
       {% csrf_token %}

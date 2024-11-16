@@ -11,7 +11,7 @@ from .forms import CustomUserCreationForm
 
 from django.contrib.auth import authenticate, login
 from .forms import CustomUserCreationForm
-
+'''''
 def register_view(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
@@ -41,7 +41,7 @@ def register_view(request):
         form = CustomUserCreationForm()
     
     return render(request, 'users/register.html', {'form': form})
-
+'''
 
 def login_view(request):
     if request.method == 'POST':
