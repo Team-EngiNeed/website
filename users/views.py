@@ -1,16 +1,11 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout
 from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import get_user_model
-from django.contrib.auth import authenticate, login
-from django.shortcuts import render, redirect
-from django.contrib.auth.forms import AuthenticationForm
-from .forms import CustomUserCreationForm
 
 
-from django.contrib.auth import authenticate, login
-from .forms import CustomUserCreationForm
+
 '''''
 def register_view(request):
     if request.method == 'POST':
