@@ -3,6 +3,7 @@ from .models import ContactMessage, Submission
 from django.contrib.auth.decorators import login_required
 from . import forms
 from django.shortcuts import get_object_or_404
+from django.utils import timezone
 
 def index(request):
   return render(request, 'index.html')
