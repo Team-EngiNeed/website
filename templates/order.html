@@ -44,15 +44,22 @@
       {% endif %}
 
       <!-- Conditional button functionality -->
-      <button type="submit" class = "form-save">
-        {% if username == "VCSMS-Engineer" %}
-          Save Changes
-        {% else %}
-          Save
-        {% endif %}
-      </button>
-    </form>
-  
+    <button type="submit" class="form-save">
+  {% if username == "VCSMS-Engineer" %}
+    <a href="{% url 'engineed:engineer' %}">Save Changes</a>
+  {% else %}
+    {% if 'PRESIDENT' in username.upper %}
+      <a href="{% url 'engineed:index_new' %}">Save</a>
+    {% elif 'ADVISER' in username.upper %}
+      <a href="{% url 'engineed:adviser' %}">Save</a>
+    {% elif 'ADMIN' in username.upper %}
+      <a href="{% url 'engineed:index_new' %}">Save</a>
+    {% else %}
+      <a href="{% url 'engineed:index_new' %}">Save</a>
+    {% endif %}
+  {% endif %}
+</button>
+
   {% else %}
     <!-- Display details if the user cannot edit -->
     <p><strong>Name:</strong> {{ submission.fullName }}</p>
