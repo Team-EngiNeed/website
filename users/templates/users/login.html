@@ -27,10 +27,15 @@
       <div class="form_password">
         <label for="{{ form.password.id_for_label }}">Password:</label>
         {{ form.password }}
-        <input type="checkbox" id="showPassword" /> Show Password
+        <div class = "ass">
+          <input type="checkbox" id="showPassword" />
+          <label for="showPassword">Show Password</label>
+        </div>
       </div>
 
-      <button type="submit" class="login-btn">Log In</button>
+      <div class="loginbutton">
+        <button type="submit" class="login-btn">Log In</button>
+      </div>
     </form>
     <script src="{% static 'js/app.js' %}"></script>
   </div>

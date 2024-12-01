@@ -6,7 +6,9 @@
   overflow: hidden;
 }
 
-.login {
+
+.login
+{
   transform: translateY(-100px);
 }
 
@@ -15,66 +17,75 @@
   font-size: 1.5rem;
   color: black; /* or any color you prefer */
   cursor: pointer;
-  position: absolute;
-  right: 20px;
-  top: 20px; /* Adjusted for better position */
+  /* Add any additional styling you need */
+  position:absolute;
+  right: 50px;
 }
+
+
 
 .login-content {
   background: #fff;
   padding: 2rem;
   border-radius: 8px;
-  width: 100%;
-  max-width: 750px; /* Ensures responsiveness */
+  width: 750px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   animation: popupFadeIn 0.5s ease-in-out; /* Add fade-in animation */
-  height: auto; /* Adjusts the height based on content */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  height: 400px;
 }
 
+.form_email
+{
+  position: absolute;
+  transform:translateY(75px);
+}
+
+.form_password
+{
+  position: absolute;
+  transform:translateY(150px);
+}
+
+.loginbutton
+{
+  position: absolute;
+  transform:translateY(300px);
+}
+
+
+
+
+
+/* Headings */
 .login-content h2 {
   font-size: 36px;
   margin-bottom: 30px;
-  color: #333;
-  text-align: center;
+  color: #333; /* Slightly darker than black */
+  position: absolute;
+  transform:translateY(-10px);
 }
 
-.form_email,
-.form_password {
-  width: 100%; /* Adjusted to make form fields fit */
-  max-width: 500px;
-  margin-bottom: 20px;
+
+
+/* Label for the Remember me checkbox */
+form label {
+  font-size: 20px;
+  color: #333; /* Darker for better readability */
 }
 
-.form label {
-  font-weight: bold;
-  color: #000;
-  display: block;
-  margin: 10px 0 5px;
+
+.ass input[type="checkbox"]
+{
+ position:absolute;
+ transform:translateY(7px);
+ left: -85px;
 }
 
-.form_email input,
-.form_password input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 14px;
-  box-sizing: border-box;
-}
 
-#showPassword {
-  margin-left: 10px;
-  cursor: pointer;
-}
-
-.login-btn {
-  width: 100%;
-  max-width: 500px; /* Ensures the button is the same width as the form inputs */
-  background-color: #5a0b12;
+/* Login Button */
+button[type="submit"] {
+  width: 650px;
+  background-color: #5a0b12; /* Maroon color */
   color: #fff;
   padding: 12px;
   border: none;
@@ -84,32 +95,52 @@
   transition: background-color 0.3s ease;
 }
 
-.login-btn:hover {
-  background-color: #7a0e18;
+button[type="submit"]:hover {
+  background-color: #7a0e18; /* Darker maroon on hover */
 }
 
+/* Adjustments for the form fields */
+
+
+
+.form_email input {
+  width: 500px;         /* Set width to 500px */
+  padding: 10px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  box-sizing: border-box; /* Ensures padding and border are included in the width */
+  margin-left: 5px;     /* Moves the input 50px to the right */
+}
+
+
+.form_password input {
+  width: 500px;  /* Set width to 500px */
+  padding: 10px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  box-sizing: border-box; /* Ensures padding and border are included in the width */
+  margin-left: 12px;     /* Moves the input 50px to the right */
+}
+
+
 .error-message {
-  color: #ff0000;
-  background-color: #ffe6e6;
+  color: #ff0000; /* Red color for error text */
+  background-color: #ffe6e6; /* Light red background */
   padding: 10px;
   border: 1px solid #ff0000;
   border-radius: 5px;
   font-size: 14px;
-  width: 100%;
-  max-width: 500px;
-  margin-bottom: 20px;
-  text-align: center;
+  position: absolute;
+  transform: translateY(285px);
+  width: 650px;
 }
 
-/* Adjustments for smaller screens */
-@media (max-width: 600px) {
-  .login-content {
-    width: 90%;
-  }
-
-  .form_email input,
-  .form_password input,
-  .login-btn {
-    width: 100%;
-  }
+.login-link 
+{
+  transform: translateY(10px);
+  transform: translateX(350px);
 }

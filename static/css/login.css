@@ -46,13 +46,15 @@
   transform:translateY(150px);
 }
 
-/* Form Label */
-.form label {
-  font-weight: bold;
-  color: #000;
-  display: block;
-  margin: 10px 0 5px;
+.loginbutton
+{
+  position: absolute;
+  transform:translateY(300px);
 }
+
+
+
+
 
 /* Headings */
 .login-content h2 {
@@ -63,20 +65,22 @@
   transform:translateY(-10px);
 }
 
-.login-btn
-{
-  position: absolute;
-  transform: translateY(230px);
-}
-
 
 
 /* Label for the Remember me checkbox */
 form label {
   font-size: 20px;
-  margin-left: 5px;
   color: #333; /* Darker for better readability */
 }
+
+
+.ass input[type="checkbox"]
+{
+ position:absolute;
+ transform:translateY(7px);
+ left: -85px;
+}
+
 
 /* Login Button */
 button[type="submit"] {
