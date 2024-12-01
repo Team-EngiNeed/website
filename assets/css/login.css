@@ -6,9 +6,7 @@
   overflow: hidden;
 }
 
-
-.login
-{
+.login {
   transform: translateY(-100px);
 }
 
@@ -17,12 +15,9 @@
   font-size: 1.5rem;
   color: black; /* or any color you prefer */
   cursor: pointer;
-  /* Add any additional styling you need */
-  position:absolute;
+  position: absolute;
   right: 50px;
 }
-
-
 
 .login-content {
   background: #fff;
@@ -34,16 +29,14 @@
   height: 400px;
 }
 
-.form_email
-{
+.form_email {
   position: absolute;
-  transform:translateY(75px);
+  transform: translateY(75px);
 }
 
-.form_password
-{
+.form_password {
   position: absolute;
-  transform:translateY(150px);
+  transform: translateY(150px);
 }
 
 /* Form Label */
@@ -60,16 +53,13 @@
   margin-bottom: 30px;
   color: #333; /* Slightly darker than black */
   position: absolute;
-  transform:translateY(-10px);
+  transform: translateY(-10px);
 }
 
-.login-btn
-{
+.login-btn {
   position: absolute;
   transform: translateY(230px);
 }
-
-
 
 /* Label for the Remember me checkbox */
 form label {
@@ -96,33 +86,37 @@ button[type="submit"]:hover {
 }
 
 /* Adjustments for the form fields */
-
-
-
 .form_email input {
-  width: 500px;         /* Set width to 500px */
+  width: 500px;
   padding: 10px;
   margin-bottom: 5px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 14px;
-  box-sizing: border-box; /* Ensures padding and border are included in the width */
-  margin-left: 5px;     /* Moves the input 50px to the right */
+  box-sizing: border-box;
+  margin-left: 5px;
 }
-
 
 .form_password input {
-  width: 500px;  /* Set width to 500px */
+  width: 500px;
   padding: 10px;
   margin-bottom: 5px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 14px;
-  box-sizing: border-box; /* Ensures padding and border are included in the width */
-  margin-left: 12px;     /* Moves the input 50px to the right */
+  box-sizing: border-box;
+  margin-left: 12px;
 }
 
+/* Styling for the Show Password checkbox */
+#showPassword {
+  margin-left: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  transform: translateY(5px); /* Align with the password input */
+}
 
+/* Error message styling */
 .error-message {
   color: #ff0000; /* Red color for error text */
   background-color: #ffe6e6; /* Light red background */
@@ -135,8 +129,7 @@ button[type="submit"]:hover {
   width: 650px;
 }
 
-.login-link 
-{
+.login-link {
   transform: translateY(10px);
   transform: translateX(350px);
 }
