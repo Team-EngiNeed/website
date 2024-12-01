@@ -8,16 +8,23 @@ menu.addEventListener("click", function () {
   menuLinks.classList.toggle("active");
 });
 
-const passwordField = document.querySelector("input[type='password']");
-const showPasswordCheckbox = document.getElementById("showPassword");
 
-// Add an event listener to the checkbox to toggle the password visibility
-showPasswordCheckbox.addEventListener("change", function () {
-  if (this.checked) {
-    // Show the password
-    passwordField.type = "text";
-  } else {
-    // Hide the password
-    passwordField.type = "password";
+document.addEventListener("DOMContentLoaded", function () {
+  const passwordField = document.querySelector(
+    ".form_password input[type='password']"
+  );
+  const showPasswordCheckbox = document.getElementById("showPassword");
+
+  // Add an event listener to the checkbox to toggle the password visibility
+  if (passwordField && showPasswordCheckbox) {
+    showPasswordCheckbox.addEventListener("change", function () {
+      if (this.checked) {
+        // Show the password
+        passwordField.type = "text";
+      } else {
+        // Hide the password
+        passwordField.type = "password";
+      }
+    });
   }
 });
