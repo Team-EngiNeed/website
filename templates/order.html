@@ -61,10 +61,6 @@
     <p><strong>Damaged Property:</strong> {{ submission.damagedProperty }}</p>
     <p><strong>Comment:</strong> {{ submission.comment }}</p>
 
-    {% if submission.damagedImage %}
-      <img src="{{ submission.damagedImage.url }}" alt="Damaged Property Image">
-    {% endif %}
-
     {% if submission.completed %}
       <p class="status-completed">Completed</p>
     {% else %}
