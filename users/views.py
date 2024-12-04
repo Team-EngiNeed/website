@@ -3,10 +3,10 @@ from django.contrib.auth import login, logout
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate
 from django.contrib.auth.forms import AuthenticationForm
+from .forms import CustomUserCreationForm
 
 
 
-'''''
 def register_view(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
@@ -36,7 +36,7 @@ def register_view(request):
         form = CustomUserCreationForm()
     
     return render(request, 'users/register.html', {'form': form})
-'''
+
 
 def login_view(request):
     if request.method == 'POST':
