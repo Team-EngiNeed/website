@@ -49,9 +49,9 @@
       {% if "PRESIDENT" in username %}
         <a href="{% url 'engineed:about' %}" class="navbar__links">About</a>
       {% elif "ADVISER" in username %}
-        <a href="{% url 'engineed:page' %}" class="navbar__links">Orders</a>
+        <a href="{% url 'engineed:about' %}" class="navbar__links">About</a>
       {% elif "ENGINEER" in username %}
-        <a href="{% url 'engineed:page' %}" class="navbar__links">Orders</a>
+        <a href="{% url 'engineed:about' %}" class="navbar__links">About</a>
       {% else %}
         <a href="{% url 'engineed:about' %}" class="navbar__links">About</a>
       {% endif %}
@@ -60,9 +60,9 @@
       {% if "PRESIDENT" in username %}
         <a href="{% url 'engineed:researchers' %}" class="navbar__links">Researchers</a>
       {% elif "ADVISER" in username %}
-        <a href="{% url 'engineed:ticket' %}" class="navbar__links">Ticket</a>
+        <a href="{% url 'engineed:researchers' %}" class="navbar__links">Researchers</a>
       {% elif "ENGINEER" in username %}
-        <a href="{% url 'engineed:ticket' %}" class="navbar__links">Ticket</a>
+        <a href="{% url 'engineed:researchers' %}" class="navbar__links">Researchers</a>
       {% else %}
         <a href="{% url 'engineed:researchers' %}" class="navbar__links">Resarchers</a>
       {% endif %}
