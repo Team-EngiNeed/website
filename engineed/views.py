@@ -36,6 +36,11 @@ def researchers(request):
 
 @login_required(login_url="/users/login/")
 def index_new(request):
+    return render(request, 'index_new.html')
+
+
+@login_required(login_url="/users/login/")
+def ticket(request):
     form = forms.Ticket()  # Initialize the form for GET requests
 
     if request.method == "POST":
@@ -66,8 +71,7 @@ def index_new(request):
             else:
                 return redirect('engineed:index')  # Default redirect
 
-    return render(request, 'index_new.html', {'form': form})
-
+    return render(request, 'ticket.html', {'form': form})
 
 
 @login_required(login_url="/users/login/")

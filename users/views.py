@@ -7,6 +7,7 @@ from .forms import CustomUserCreationForm
 
 
 
+
 def register_view(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)

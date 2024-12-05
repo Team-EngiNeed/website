@@ -4,7 +4,6 @@
 <div class="login">
   <div class="login-content">
     <a href="{% url 'engineed:index' %}" class="close-btn">&times;</a>
-    <h2>Log In</h2>
 
     <!-- Error message div -->
     {% if form.errors %}
@@ -14,7 +13,13 @@
       {% endfor %} {% endfor %}
     </div>
     {% endif %}
+    <div class="auth-tabs">
+      <!-- Link to the login page -->
+      <a href="{% url 'users:login' %}" class="tab-btn active">Log In</a>
 
+      <!-- Link to the register page -->
+      <a href="{% url 'users:register' %}" class="tab-btn">Register</a>
+    </div>
     <form method="post" action="{% url 'users:login' %}">
       {% csrf_token %}
 
@@ -27,10 +32,13 @@
       <div class="form_password">
         <label for="{{ form.password.id_for_label }}">Password:</label>
         {{ form.password }}
-        <div class = "ass">
-          <input type="checkbox" id="showPassword" />
-          <label for="showPassword">Show Password</label>
-        </div>
+      </div>
+
+      <div class="show_password">
+        <label>
+          <input type="checkbox" class="toggle-password-checkbox" /> Show
+          Password
+        </label>
       </div>
 
       <div class="loginbutton">

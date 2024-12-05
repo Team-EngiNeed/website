@@ -44,6 +44,8 @@
 {
   position: absolute;
   transform:translateY(150px);
+  display:flex;
+  align-items: center;
 }
 
 .loginbutton
@@ -144,3 +146,42 @@ button[type="submit"]:hover {
   transform: translateY(10px);
   transform: translateX(350px);
 }
+
+.form_password {
+  position: absolute;
+  transform: translateY(150px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.form_password input {
+  width: 500px; /* Matches existing styles */
+  padding-right: 40px; /* Add space if needed for the toggle */
+}
+
+.form_password {
+  position: absolute;
+  transform: translateY(150px);
+  display: flex;
+  align-items: center;
+}
+
+.show_password {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: #333; /* Matches your label text color */
+}
+
+.show_password label {
+  position: absolute;
+  transform: translateY(200px);
+}
+
+.show_password input[type="checkbox"] {
+  margin-right: 10px; /* Space between the checkbox and the label text */
+  cursor: pointer;
+}
+

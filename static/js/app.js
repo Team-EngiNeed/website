@@ -28,3 +28,15 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleCheckbox = document.querySelector(".toggle-password-checkbox");
+  const passwordInput = document.querySelector("input[type='password']");
+
+  if (toggleCheckbox && passwordInput) {
+    toggleCheckbox.addEventListener("change", () => {
+      passwordInput.type = toggleCheckbox.checked ? "text" : "password";
+    });
+  }
+});
+
