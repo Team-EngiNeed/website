@@ -46,11 +46,25 @@
       {% endif %}
     </li>
     <li class="navbar__item">
-      <a href="{% url 'engineed:about' %}" class="navbar__links">About</a>
+      {% if "PRESIDENT" in username %}
+        <a href="{% url 'engineed:about' %}" class="navbar__links">About</a>
+      {% elif "ADVISER" in username %}
+        <a href="{% url 'engineed:page' %}" class="navbar__links">Orders</a>
+      {% elif "ENGINEER" in username %}
+        <a href="{% url 'engineed:page' %}" class="navbar__links">Orders</a>
+      {% else %}
+        <a href="{% url 'engineed:about' %}" class="navbar__links">About</a>
+      {% endif %}
     </li>
     <li class="navbar__item">
-      {% if "PRESIDENT" not in username %}
-        <a href="{% url 'engineed:researchers' %}" class="navbar__links">The Researchers</a>
+      {% if "PRESIDENT" in username %}
+        <a href="{% url 'engineed:researchers' %}" class="navbar__links">Researchers</a>
+      {% elif "ADVISER" in username %}
+        <a href="{% url 'engineed:ticket' %}" class="navbar__links">Ticket</a>
+      {% elif "ENGINEER" in username %}
+        <a href="{% url 'engineed:ticket' %}" class="navbar__links">Ticket</a>
+      {% else %}
+        <a href="{% url 'engineed:researchers' %}" class="navbar__links">Resarchers</a>
       {% endif %}
     </li>
   {% endwith %}
