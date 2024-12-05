@@ -7,7 +7,7 @@
 }
 
 
-.register
+.login .register
 {
   transform: translateY(-100px);
 }
@@ -24,7 +24,7 @@
 
 
 
-.register-content {
+.login-content {
   background: #fff;
   padding: 2rem;
   border-radius: 8px;
@@ -37,25 +37,27 @@
 .form_email
 {
   position: absolute;
-  transform:translateY(75px);
+  transform:translateY(30px);
 }
 
 .form_password
 {
   position: absolute;
-  transform:translateY(150px);
+  transform:translateY(105px);
 }
 
-/* Form Label */
-.form label {
-  font-weight: bold;
-  color: #000;
-  display: block;
-  margin: 10px 0 5px;
+.registerbutton
+{
+  position: absolute;
+  transform: translateY(160px);
 }
+
+
+
+
 
 /* Headings */
-.register-content h2 {
+.login-content h2 {
   font-size: 36px;
   margin-bottom: 30px;
   color: #333; /* Slightly darker than black */
@@ -63,20 +65,22 @@
   transform:translateY(-10px);
 }
 
-.register-btn
-{
-  position: absolute;
-  transform: translateY(230px);
-}
-
 
 
 /* Label for the Remember me checkbox */
 form label {
   font-size: 20px;
-  margin-left: 5px;
   color: #333; /* Darker for better readability */
 }
+
+
+.ass input[type="checkbox"]
+{
+ position:absolute;
+ transform:translateY(7px);
+ left: -85px;
+}
+
 
 /* Login Button */
 button[type="submit"] {
@@ -124,15 +128,11 @@ button[type="submit"]:hover {
 
 
 .error-message {
-  color: #ff0000; /* Red color for error text */
-  background-color: #ffe6e6; /* Light red background */
+  background: #ffe6e6;
+  color: #ff0000;
   padding: 10px;
-  border: 1px solid #ff0000;
   border-radius: 5px;
-  font-size: 14px;
-  position: absolute;
-  transform: translateY(285px);
-  width: 650px;
+  margin-bottom: 20px;
 }
 
 
@@ -140,4 +140,26 @@ button[type="submit"]:hover {
 {
   transform: translateY(10px);
   transform: translateX(350px);
+}
+
+.auth-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 10px 20px;
+  cursor: pointer;
+  background: #f1f1f1;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.tab-btn.active {
+  background: #5a0b12;
+  color: #fff;
 }

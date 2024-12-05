@@ -51,7 +51,7 @@
   align-items: center;
   background: url("/static/images/BG.png") no-repeat center center fixed;
   background-size: cover;
-  height: 110vh;
+  height: 100vh;
 }
 
 .services {
@@ -70,14 +70,12 @@
   -moz-text-fill-color: transparent;
   margin-bottom: 5rem;
   font-size: 5rem;
-  transform: translateY(110px);
 }
 
 .services__container {
   display: flex;
   justify-content: center; /* Center the cards horizontally */
   gap: 30px; /* Optional: add space between the cards */
-  transform: translateY(100px);
 }
 
 

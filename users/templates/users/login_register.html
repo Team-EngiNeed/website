@@ -1,0 +1,71 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/login_register.css' %}" />
+{% endblock %}
+
+{% block title %}Log In / Register{% endblock %}
+
+{% block main %}
+<div class="auth-container">
+    <div class="auth-tabs">
+        <button class="tab-btn active" data-tab="login-form">Log In</button>
+        <button class="tab-btn" data-tab="register-form">Register</button>
+    </div>
+
+    <div class="form-container">
+        <!-- Login Form -->
+        <div id="login-form" class="auth-form active">
+            <h2>Log In</h2>
+            {% if login_form.errors %}
+            <div class="error-message">
+                {% for field, errors in login_form.errors.items %}
+                {% for error in errors %}
+                <p>{{ error }}</p>
+                {% endfor %}
+                {% endfor %}
+            </div>
+            {% endif %}
+            <form method="post" action="{% url 'users:auth' %}">
+                {% csrf_token %}
+                <label for="{{ login_form.username.id_for_label }}">Username:</label>
+                {{ login_form.username }}
+                
+                <label for="{{ login_form.password.id_for_label }}">Password:</label>
+                {{ login_form.password }}
+                <div class="show-password">
+                    <input type="checkbox" id="showPasswordLogin" />
+                    <label for="showPasswordLogin">Show Password</label>
+                </div>
+                <button type="submit" class="auth-btn">Log In</button>
+            </form>
+        </div>
+
+        <!-- Register Form -->
+        <div id="register-form" class="auth-form">
+            <h2>Register</h2>
+            {% if register_form.errors %}
+            <div class="error-message">
+                {% for field, errors in register_form.errors.items %}
+                {% for error in errors %}
+                <p>{{ error }}</p>
+                {% endfor %}
+                {% endfor %}
+            </div>
+            {% endif %}
+            <form method="post" action="{% url 'users:auth' %}">
+                {% csrf_token %}
+                <label for="{{ register_form.username.id_for_label }}">Username:</label>
+                {{ register_form.username }}
+                
+                <label for="{{ register_form.password.id_for_label }}">Password:</label>
+                {{ register_form.password }}
+                <button type="submit" class="auth-btn">Register</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'js/toggle_forms.js' %}"></script>
+{% endblock %}

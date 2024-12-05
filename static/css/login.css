@@ -12,6 +12,11 @@
   transform: translateY(-100px);
 }
 
+.register
+{
+  transform: translateY(-100px);
+}
+
 .close-btn {
   text-decoration: none;
   font-size: 1.5rem;
@@ -24,7 +29,17 @@
 
 
 
-.login-content {
+.login-content{
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 750px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  animation: popupFadeIn 0.5s ease-in-out; /* Add fade-in animation */
+  height: 400px;
+}
+
+.register-content{
   background: #fff;
   padding: 2rem;
   border-radius: 8px;
@@ -37,22 +52,26 @@
 .form_email
 {
   position: absolute;
-  transform:translateY(75px);
+  transform:translateY(30px);
 }
 
 .form_password
 {
   position: absolute;
-  transform:translateY(150px);
+  transform:translateY(105px);
 }
 
 .loginbutton
 {
   position: absolute;
-  transform:translateY(300px);
+  transform: translateY(160px);
 }
 
-
+.registerbutton
+{
+  position: absolute;
+  transform: translateY(160px);
+}
 
 
 
@@ -128,19 +147,38 @@ button[type="submit"]:hover {
 
 
 .error-message {
-  color: #ff0000; /* Red color for error text */
-  background-color: #ffe6e6; /* Light red background */
+  background: #ffe6e6;
+  color: #ff0000;
   padding: 10px;
-  border: 1px solid #ff0000;
   border-radius: 5px;
-  font-size: 14px;
-  position: absolute;
-  transform: translateY(285px);
-  width: 650px;
+  margin-bottom: 20px;
 }
+
 
 .login-link 
 {
   transform: translateY(10px);
   transform: translateX(350px);
+}
+
+.auth-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 10px 20px;
+  cursor: pointer;
+  background: #f1f1f1;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.tab-btn.active {
+  background: #5a0b12;
+  color: #fff;
 }

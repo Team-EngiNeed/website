@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title%} EngiNeed {% endblock %}</title>
-    <link rel="stylesheet" href="{%static 'css/styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -28,62 +28,44 @@
         </div>
         <div class="navbar__toggle" id="mobile-menu">
           <span class="bar"></span>
-          <span class="bar"></span>
+          <span class="bar"></span>   
           <span class="bar"></span>
         </div>
         <ul class="navbar__menu">
-          <li class="navbar__item">
-            {% if user.is_authenticated %}
-    {% if 'PRESIDENT' in user.username.upper %}
+          {% if user.is_authenticated %}
+  {% with user.username|upper as username %}
+    <li class="navbar__item">
+      {% if "PRESIDENT" in username %}
         <a href="{% url 'engineed:index_new' %}" class="navbar__links">Home</a>
-    {% elif 'ADVISER' in user.username.upper %}
+      {% elif "ADVISER" in username %}
         <a href="{% url 'engineed:adviser' %}" class="navbar__links">Orders</a>
-    {% elif 'ENGINEER' in user.username.upper %}
+      {% elif "ENGINEER" in username %}
         <a href="{% url 'engineed:engineer' %}" class="navbar__links">Orders</a>
-    {% else %}
+      {% else %}
         <a href="{% url 'engineed:index' %}" class="navbar__links">Home</a>
-    {% endif %}
+      {% endif %}
+    </li>
+    <li class="navbar__item">
+      <a href="{% url 'engineed:about' %}" class="navbar__links">About</a>
+    </li>
+    <li class="navbar__item">
+      {% if "PRESIDENT" not in username %}
+        <a href="{% url 'engineed:researchers' %}" class="navbar__links">The Researchers</a>
+      {% endif %}
+    </li>
+  {% endwith %}
 {% else %}
+  <li class="navbar__item">
     <a href="{% url 'engineed:index' %}" class="navbar__links">Home</a>
-{% endif %}
-
-          </li>
-
-          <li class="navbar__item">
-            <!-- prettier-ignore -->
-            {% if user.is_authenticated %}
-    {% if 'PRESIDENT' in user.username.upper %}
-        <a href="{% url 'engineed:page' %}" class="navbar__links">Orders</a>
-    {% elif 'ADVISER' in user.username.upper %}
-        <a href="{% url 'engineed:about' %}" class="navbar__links">About</a>
-    {% elif 'ENGINEER' in user.username.upper %}
-        <a href="{% url 'engineed:about' %}" class="navbar__links">About</a>
-    {% else %}
-        <a href="{% url 'engineed:about' %}" class="navbar__links">About</a>
-    {% endif %}
-{% else %}
+  </li>
+  <li class="navbar__item">
     <a href="{% url 'engineed:about' %}" class="navbar__links">About</a>
-{% endif %}
-          </li>
-
-          <li class="navbar__item">
-            {% if user.is_authenticated %}
-    {% if 'PRESIDENT' in user.username.upper %}
-        <a href="{% url 'engineed:about' %}" class="navbar__links">About</a>
-    {% elif 'ADVISER' in user.username.upper %}
-        <a href="{% url 'engineed:researchers' %}" class="navbar__links">The Researchers</a>
-    {% elif 'ENGINEER' in user.username.upper %}
-        <a href="{% url 'engineed:researchers' %}" class="navbar__links">The Researchers</a>
-    {% else %}
-        <a href="{% url 'engineed:researchers' %}" class="navbar__links">The Researchers</a>
-    {% endif %}
-{% else %}
+  </li>
+  <li class="navbar__item">
     <a href="{% url 'engineed:researchers' %}" class="navbar__links">The Researchers</a>
+  </li>
 {% endif %}
-
-          </li>
-
-          <li class="navbar__btn">
+<li class="navbar__btn">
   {% if user.is_authenticated %}
     <form action="{% url 'users:logout' %}" method="post">
       {% csrf_token %}
@@ -93,6 +75,7 @@
     <a href="{% url 'users:login' %}" class="button">Log In</a>
   {% endif %}
 </li>
+
 
         </ul>
       </div>
