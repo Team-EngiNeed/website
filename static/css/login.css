@@ -39,15 +39,6 @@
   height: 400px;
 }
 
-.register-content{
-  background: #fff;
-  padding: 2rem;
-  border-radius: 8px;
-  width: 750px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-  animation: popupFadeIn 0.5s ease-in-out; /* Add fade-in animation */
-  height: 400px;
-}
 
 .form_email
 {
