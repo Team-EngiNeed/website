@@ -1,3 +1,5 @@
+/*
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -36,7 +38,7 @@
   z-index: 1;
   width: 100%;
   max-width: 1669px;
-  padding: 0 0 0 0px; /* Reduced padding to move the logo more to the left */
+  padding: 0 0 0 0px; 
   align-items: center;
 }
 
@@ -75,14 +77,14 @@
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  padding: 5px 15px; /* Reduced padding to decrease button size */
-  height: auto; /* Set height to auto if you want it to adjust based on padding */
-  width: auto;  /* Set width to auto if you want it to adjust based on content */
+  padding: 5px 15px; 
+  height: auto;
+  width: auto; 
   border: none;
   outline: none;
   background: #561c24;
   color: #fff;
-  font-size: 1.1rem; /* You can also reduce the font size if needed */
+  font-size: 1.1rem; 
 }
 
 .button:hover {
@@ -111,9 +113,260 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url("/static/images/BG.png") no-repeat center center fixed; /* Fixed background */
-  background-size: cover; /* Ensure the image covers the entire background */
+  background: url("/static/images/BG.png") no-repeat center center fixed; 
+  background-size: cover; 
+}
+*/
+
+/*
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
 }
 
 
 
+@keyframes transitionIn{
+
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+
+.navbar {
+  background-color: #382c2c;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: 1.2rem;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.navbar__container {
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
+  z-index: 1;
+  width: 100%;
+  max-width: 1669px;
+  padding: 0 0 0 0px; 
+  align-items: center;
+}
+
+.navbar__menu {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  text-align: center;
+}
+
+.navbar__item {
+  height: 100px;
+}
+
+.navbar__links {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  padding: 0 3rem;
+  height: 100%;
+  font-size: 1.1rem;
+}
+
+.navbar__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+ 
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  padding: 5px 15px; 
+  height: auto;
+  width: auto; 
+  border: none;
+  outline: none;
+  background: #561c24;
+  color: #fff;
+  font-size: 1.1rem; 
+}
+
+.button:hover {
+  background-color: #e8c49c;
+  transition: all 0.3s ease;
+}
+
+#navbar__logo {
+  height: 150px;
+  margin-right: auto;
+}
+
+.navbar__logo{
+  transform: translateX(-30px);
+  transform: translateY(10px);
+}
+
+.navbar__links:hover{
+  color: #561c24;
+  transition: all 0.3s ease;
+}
+
+
+.main {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("/static/images/BG.png") no-repeat center center fixed; 
+  background-size: cover; 
+}
+*/
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+@keyframes transitionIn{
+
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+
+.navbar {
+  background-color: #382c2c;
+  min-height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: 1.2rem;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.navbar__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  padding: 0 20px;
+}
+
+.navbar__menu {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  text-align: center;
+  flex-wrap: wrap; /* Enables wrapping */
+}
+
+.navbar__item {
+  flex-shrink: 0;
+}
+
+.navbar__links {
+  color: #fff;
+  text-decoration: none;
+  padding: 0 1rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  white-space: nowrap; /* Prevents wrapping */
+}
+
+#navbar__logo {
+  height: 150px;
+  margin-right: auto;
+}
+
+.navbar__logo{
+  transform: translateX(-30px);
+  transform: translateY(10px);
+}
+
+
+.navbar__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  padding: 5px 15px;
+  background: #561c24;
+  color: #fff;
+  font-size: 1.1rem;
+  border: none;
+  outline: none;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.button:hover {
+  background-color: #e8c49c;
+  transition: all 0.3s ease;
+}
+
+.navbar__links:hover {
+  color: #561c24;
+  transition: all 0.3s ease;
+}
+
+
+.main {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("/static/images/BG.png") no-repeat center center fixed; 
+  background-size: cover; 
+}
+
+@media (max-width: 768px) {
+  .navbar__menu {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+  }
+  .navbar__links {
+      padding: 10px 0;
+  }
+  .navbar__btn {
+      justify-content: center;
+      width: 100%;
+  }
+}

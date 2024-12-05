@@ -14,13 +14,23 @@
     </div>
     {% endif %}
     <div class="auth-tabs">
+<<<<<<< HEAD
       <!-- Link to the login page -->
       <a href="{% url 'users:login' %}" class="tab-btn active">Log In</a>
 
       <!-- Link to the register page -->
       <a href="{% url 'users:register' %}" class="tab-btn">Register</a>
+=======
+        <!-- Link to the login page -->
+        <a href="{% url 'users:login' %}" class="tab-btn active">Log In</a>
+    
+        <!-- Link to the register page -->
+        <a href="{% url 'users:register' %}" class="tab-btn">Register</a>
+>>>>>>> 462dfc385d0559ced6b3e7a0eedf3b49ba94d473
     </div>
     <form method="post" action="{% url 'users:login' %}">
+        
+        
       {% csrf_token %}
 
       <!-- Form fields -->
@@ -32,6 +42,7 @@
       <div class="form_password">
         <label for="{{ form.password.id_for_label }}">Password:</label>
         {{ form.password }}
+<<<<<<< HEAD
       </div>
 
       <div class="show_password">
@@ -39,6 +50,8 @@
           <input type="checkbox" class="toggle-password-checkbox" /> Show
           Password
         </label>
+=======
+>>>>>>> 462dfc385d0559ced6b3e7a0eedf3b49ba94d473
       </div>
 
       <div class="loginbutton">
