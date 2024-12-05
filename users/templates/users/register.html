@@ -1,48 +1,36 @@
-{% extends 'layout.html' %}
-{% load static %}
-
-{% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/login.css' %}" />
-{% endblock %}
-
-{% block title %}Register{% endblock %}
-
-{% block main %}
+{% extends 'layout.html' %} {% load static %} {% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}" />
+{% endblock %} {% block title %}Register{% endblock %} {% block main %}
 <div class="register">
   <div class="register-content">
-   <a href="{% url 'engineed:index' %}" class="close-btn">&times;</a>
+    <a href="{% url 'engineed:index' %}" class="close-btn">&times;</a>
 
-    
     <!-- Error message div -->
     {% if form.errors %}
     <div class="error-message">
-      {% for field, errors in form.errors.items %}
-        {% for error in errors %}
-          <p>{{ error }}</p>
-        {% endfor %}
-      {% endfor %}
+      {% for field, errors in form.errors.items %} {% for error in errors %}
+      <p>{{ error }}</p>
+      {% endfor %} {% endfor %}
     </div>
     {% endif %}
     <div class="auth-tabs">
       <!-- Link to the login page -->
       <a href="{% url 'users:login' %}" class="tab-btn">Log In</a>
-  
+
       <!-- Link to the register page -->
       <a href="{% url 'users:register' %}" class="tab-btn active">Register</a>
     </div>
 
-  
-  <form method="post" action="{% url 'users:register' %}">
-          
-        {% csrf_token %}
-  
-        <!-- Form fields -->
-        <div class="form_email">
-          <label for="{{ form.username.id_for_label }}">Username:</label>
-          {{ form.username }}
-        </div>
-  
-        <div class="form_password">
+    <form method="post" action="{% url 'users:register' %}">
+      {% csrf_token %}
+
+      <!-- Form fields -->
+      <div class="form_email">
+        <label for="{{ form.username.id_for_label }}">Username:</label>
+        {{ form.username }}
+      </div>
+
+      <div class="form_password">
         <label for="{{ form.password.id_for_label }}">Password:</label>
         {{ form.password }}
       </div>
@@ -53,11 +41,11 @@
           Password
         </label>
       </div>
-  
-        <div class="registerbutton">
-          <button type="submit" class="register-btn">Register</button>
-        </div>
-      </form>
+
+      <div class="registerbutton">
+        <button type="submit" class="register-btn">Register</button>
+      </div>
+    </form>
   </div>
 </div>
 {% endblock %}
