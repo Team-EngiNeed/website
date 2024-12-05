@@ -58,7 +58,7 @@
     </li>
     <li class="navbar__item">
       {% if "PRESIDENT" in username %}
-        <a href="{% url 'engineed:about %}" class="navbar__links">About</a>
+        <a href="{% url 'engineed:about' %}" class="navbar__links">About</a>
       {% elif "ADVISER" in username %}
         <a href="{% url 'engineed:researchers' %}" class="navbar__links">Researchers</a>
       {% elif "ENGINEER" in username %}
