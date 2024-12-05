@@ -11,13 +11,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get("SECRET_KEY")
-
+#SECRET_KEY = 'haha'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
+#DEBUG = True
 
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split()
-
+#ALLOWED_HOSTS = []
 
 
 
@@ -139,3 +140,7 @@ LOGOUT_REDIRECT_URL = 'engineed/index'  # Redirect here after logout
 
 # settings.py
 AUTH_USER_MODEL = 'users.CustomUser'
+
+CORS_ALLOWED_ORIGINS = [
+    "https://valmasciengineed.com"
+]

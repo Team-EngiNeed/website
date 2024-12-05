@@ -1,12 +1,14 @@
-// Selecting DOM elements for menu toggle
-const menu = document.querySelector("#mobile-menu");
-const menuLinks = document.querySelector(".navbar__menu");
+document.addEventListener("DOMContentLoaded", () => {
+  const menu = document.querySelector("#mobile-menu");
+  const menuLinks = document.querySelector(".navbar__menu");
 
-// Toggle the menu
-menu.addEventListener("click", function () {
-  menu.classList.toggle("is-active");
-  menuLinks.classList.toggle("active");
+  menu.addEventListener("click", () => {
+    menu.classList.toggle("is-active");
+    menuLinks.classList.toggle("active");
+  });
 });
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
   const passwordField = document.querySelector(
@@ -27,3 +29,15 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleCheckbox = document.querySelector(".toggle-password-checkbox");
+  const passwordInput = document.querySelector("input[type='password']");
+
+  if (toggleCheckbox && passwordInput) {
+    toggleCheckbox.addEventListener("change", () => {
+      passwordInput.type = toggleCheckbox.checked ? "text" : "password";
+    });
+  }
+});
+
