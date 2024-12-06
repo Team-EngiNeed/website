@@ -17,7 +17,7 @@
   width: 650px;
   height: 550px;
   position: absolute;
-  transform: translateY(250px);
+  transform: translateY(-250px);
 }
 
 /* Label Styling */
