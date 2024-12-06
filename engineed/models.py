@@ -51,7 +51,7 @@ class Submission(models.Model):
 
 
     # Comment field
-    comment = models.SlugField(null=True, blank=True)  # Optional comment field
+    comment = models.TextField(null=True, blank=True)  # Optional comment field
 
     def __str__(self):
         # Return a string with fullName, gradeSection, damagedProperty, and comment (if available)
