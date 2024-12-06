@@ -76,8 +76,23 @@ def ticket(request):
 
 @login_required(login_url="/users/login/")
 def page(request):
-    submissions = Submission.objects.all()  # Fetch updated submissions from the database
+    # Extract user's group and role from username
+    username_parts = request.user.username.split('-')
+    user_group = username_parts[0]
+    user_role = username_parts[1] if len(username_parts) > 1 else ""
+
+    # Filter submissions for the logged-in user's group
+    if user_role.upper() == "PRESIDENT":
+        submissions = Submission.objects.filter(author__username__startswith=user_group).order_by('-dateSubmitted')
+    elif user_role.upper() == "ENGINEER":
+        submissions = Submission.objects.all().order_by('-dateSubmitted')  # Engineers can view all
+    elif user_role.upper() == "ADVISER":
+        submissions = Submission.objects.filter(author__username__startswith=user_group).order_by('-dateSubmitted')
+    else:
+        submissions = Submission.objects.none()  # Default to no submissions if no valid role
+
     return render(request, 'page.html', {'submissions': submissions})
+
 
 @login_required
 def order_detail(request, pk):
