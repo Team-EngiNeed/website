@@ -44,7 +44,7 @@ class Submission(models.Model):
 
     # Dropdown menu for damaged property
     damagedProperty = models.CharField(
-        max_length=50,
+        max_length=5000,
         choices=DAMAGED_PROPERTY_CHOICES,  # Choices for the dropdown
         default='chair'  # You can set a default if needed
     )
