@@ -12,6 +12,11 @@
   align-items: center;
   text-align: center;
   animation: transitionIn 0.75s;
+  width: 100%;
+  max-width: 1200px; /* Sets a max width for the container */
+  margin: 0 auto; /* Centers the container horizontally */
+  height: 100vh; /* Ensures the container spans the viewport height */
+  overflow-y: auto; /* Enables vertical scrolling */
 }
 
 .main__content h1 {
