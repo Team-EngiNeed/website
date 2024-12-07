@@ -41,6 +41,11 @@ def index_new(request):
 
 @login_required(login_url="/users/login/")
 def ticket(request):
+    # Extract user group and role from username
+    username_parts = request.user.username.split('-')
+    user_group = username_parts[0]
+    user_role = username_parts[1] if len(username_parts) > 1 else ""
+
     form = forms.Ticket()  # Initialize the form for GET requests
 
     if request.method == "POST":
@@ -55,23 +60,27 @@ def ticket(request):
 
             # Handle dateSubmitted manually if necessary
             if 'dateSubmitted' in request.POST:
-                new_ticket.dateSubmitted = timezone.make_aware(timezone.datetime.strptime(request.POST['dateSubmitted'], '%Y-%m-%dT%H:%M'))
+                new_ticket.dateSubmitted = timezone.make_aware(
+                    timezone.datetime.strptime(
+                        request.POST['dateSubmitted'], '%Y-%m-%dT%H:%M'
+                    )
+                )
 
             # Save the new ticket to the database
             new_ticket.save()
 
             # Redirect based on user role
-            user_role = request.user.groups.values_list('name', flat=True)  # Assuming roles are assigned via groups
-            if 'ENGINEED-ADMIN' in user_role or 'PRESIDENT' in user_role:
+            if user_role in ['ADMIN', 'President']:
                 return redirect('engineed:index_new')  # Redirect to engieed_index_new
-            elif 'ENGINEER' in user_role:
+            elif user_role == 'ENGINEER':
                 return redirect('engineed:engineer')  # Redirect to engineed:engineer
-            elif 'ADVISER' in user_role:
+            elif user_role == 'ADVISER':
                 return redirect('engineed:adviser')  # Redirect to engineed:adviser
             else:
                 return redirect('engineed:index')  # Default redirect
 
     return render(request, 'ticket.html', {'form': form})
+
 
 
 @login_required(login_url="/users/login/")
