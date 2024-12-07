@@ -3,7 +3,6 @@
   margin: 0;
   padding: 0;
   font-family: 'Montserrat', sans-serif;
-  overflow: hidden;
 }
 
 .main__container {
@@ -12,8 +11,8 @@
   align-items: center;
   text-align: center;
   animation: transitionIn 0.75s;
-	max-width:1200px;
-	overflow-y: auto;
+max-width:1200px;
+overflow-y: auto;
 }
 
 .main__content h1 {
