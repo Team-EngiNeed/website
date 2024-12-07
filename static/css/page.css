@@ -29,7 +29,7 @@
   background: linear-gradient(to right, #982b1c -50%, #dad4b5 50%, #982b1c 100%);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease;
-  width: 1600px;
+  width: 960px;
 }
 
 .content-inner {
