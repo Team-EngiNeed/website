@@ -1,18 +1,9 @@
-{% extends 'layout_2.html' %}
-{% load static %} 
-
-{% block title %} Order Details {% endblock %}
-
-{% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/order.css' %}" />
-{% endblock %}
-
 {% block main %}
 <div class="order-detail">
   <h1>Order Details</h1>
   
   {% if can_edit %}
-    <!-- Form for editing if user is either an engineer or president -->
+    <!-- Form for editing if user can edit -->
     <form method="post">
       {% csrf_token %}
       
@@ -32,34 +23,17 @@
         <textarea name="comment">{{ submission.comment }}</textarea>
       </label><br>
 
-      <!-- Conditionally show checkbox only for VCSMS-Engineer -->
       {% if username == "VCSMS-Engineer" %}
         <label>
           <input type="checkbox" name="completed" {% if submission.completed %}checked{% endif %}>
           Completed
         </label><br>
       {% else %}
-        <!-- Display as label if not engineer -->
-        <label><strong>Status:</strong> {% if submission.completed %}Completed{% else %}Not yet completed{% endif %}</label><br>
+        <p><strong>Status:</strong> {% if submission.completed %}Completed{% else %}Not yet completed{% endif %}</p>
       {% endif %}
 
-      <!-- Conditional button functionality -->
-    <button type="submit" class="form-save">
-  {% if username == "VCSMS-Engineer" %}
-    <a href="{% url 'engineed:engineer' %}">Save Changes</a>
-  {% else %}
-    {% if 'PRESIDENT' in username.upper %}
-      <a href="{% url 'engineed:index_new' %}">Save</a>
-    {% elif 'ADVISER' in username.upper %}
-      <a href="{% url 'engineed:adviser' %}">Save</a>
-    {% elif 'ADMIN' in username.upper %}
-      <a href="{% url 'engineed:index_new' %}">Save</a>
-    {% else %}
-      <a href="{% url 'engineed:index_new' %}">Save</a>
-    {% endif %}
-  {% endif %}
-</button>
-
+      <button type="submit" class="form-save">Save Changes</button>
+    </form>
   {% else %}
     <!-- Display details if the user cannot edit -->
     <p><strong>Name:</strong> {{ submission.fullName }}</p>
