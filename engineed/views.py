@@ -120,15 +120,15 @@ def order_detail(request, pk):
         submission.save()
 
         # Redirect based on user role
-        user_role = request.user.groups.values_list('name', flat=True)  # Get user roles (assuming groups)
+        user_role = request.user.groups.values_list('name', flat=True)  # Get user roles
         if 'ENGINEED-ADMIN' in user_role or 'PRESIDENT' in user_role:
-            return redirect('engineed:index_new')  # Redirect to engieed_index_new
+            return redirect('engineed:index_new')
         elif 'ENGINEER' in user_role:
-            return redirect('engineed:engineer')  # Redirect to engineed:engineer
+            return redirect('engineed:engineer')
         elif 'ADVISER' in user_role:
-            return redirect('engineed:adviser')  # Redirect to engineed:adviser
+            return redirect('engineed:adviser')
         else:
-            return redirect('engineed:index')  # Default redirect
+            return redirect('engineed:index')
 
     return render(request, 'order.html', {
         'submission': submission,
